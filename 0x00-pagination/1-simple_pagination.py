@@ -2,7 +2,8 @@
 import csv
 import math
 from typing import List, Tuple
-'''Pagination File'''
+'''Pagination File that returns from a set of data'''
+
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     '''Function that takes two args and returns pagination params'''
