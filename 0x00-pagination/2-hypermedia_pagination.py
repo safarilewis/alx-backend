@@ -43,7 +43,7 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         '''Gets info about pages'''
         data = self.get_page(page, page_size)
-        total_pages = math.ceil(len(self.__dataset)/page_size)
+        total_pages = len(self.__dataset)//page_size + 1
         info = {
             'page_size': page_size,
             'page': page,
