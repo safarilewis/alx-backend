@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
+'''A Pagination File that returns from a set of data'''
 import csv
 import math
 from typing import List, Tuple
-'''A Pagination File that returns from a set of data'''
+
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
