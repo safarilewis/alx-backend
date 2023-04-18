@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''Hypermedia pagination module'''
 import csv
 import math
 from typing import List, Tuple, Dict
@@ -41,7 +42,7 @@ class Server:
         return data[first:last]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
-        '''Gets info about pages'''
+        '''Gets info about pages and returns it'''
         data = self.get_page(page, page_size)
         total_pages = len(self.__dataset)//page_size + 1
         info = {
