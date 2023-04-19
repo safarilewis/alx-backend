@@ -16,11 +16,15 @@ class LIFOCache(BaseCaching):
         '''Puts an item and removes the last item if cache is full'''
         if key is None or item is None:
             return
-        self.cache_data[key] = item
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            poppedKey, item = self.cache_data.popitem(True)
-            print('DISCARD: {}'.format(poppedKey))
+        
+        if key not in self.cache_data:
+            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
+                poppedKey, item = self.cache_data.popitem(True)
+                print('DISCARD: {}'.format(poppedKey))
+            self.cache_data[key] = item
+        self.cache_data.move_to_end(key,True)
 
+    
     def get(self, key):
         '''Gets the item tied to key in cache'''
         return self.cache_data.get(key)
