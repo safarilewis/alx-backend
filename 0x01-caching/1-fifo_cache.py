@@ -18,8 +18,8 @@ class FIFOCache(BaseCaching):
             return
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            poppedItem = self.cache_data.popitem(False)
-            print('DISCARD: {}'.format(poppedItem.keys()))
+            poppedKey, item = self.cache_data.popitem(False)
+            print('DISCARD: {}'.format(poppedKey))
 
     def get(self, key):
         '''Returns data associated with key'''
